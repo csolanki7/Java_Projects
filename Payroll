@@ -1,0 +1,136 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab7;
+import java.util.Scanner;
+/**
+ *
+ * @author csolanki7
+ */
+public class Lab7 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Scanner input = new Scanner(System.in);
+        
+        Payroll [] employees = new Payroll [10];
+        
+        int i = 0;
+        
+        String choice = "y"; 
+        
+        while ( choice.equals("y")|| choice.equals("y")) {
+        
+        System.out.println(" Enter the Emp.name:"); 
+        String name = input.next(); 
+        
+        System.out.println(" Enter the ID number:"); 
+        int id = input.nextInt(); 
+        
+        System.out.println(" Enter the housre per rate:"); 
+        double rate = input.nextDouble();
+        
+        System.out.println(" Enter the hourse worked:"); 
+        int work = input.nextInt();
+        
+        employees [i] = new Payroll (name,id);
+          employees [i].setempname(name);
+       //  employees [i].setid(id);
+         employees [i].setpayrate(rate);
+         employees [i].setWorkedHour(work);
+         
+         
+      
+           i++;
+          
+        System.out.println(" continue ? (y for yes , n for no):");
+        choice = input.next();
+        
+        }
+        
+        System.out.printf("%20s%20s%20s%20s%20s%20s\n" ,"NO." , "Name" , "ID" , " Pay rate" , "WorkedHours" , " Gross Pay" );
+
+        for(int j =0; j < i; j++) {
+           
+          System.out.printf("%20s%20s%20s%20s%20d%20.2f\n" ,j+1 ,employees[j].getName(),employees[j].getidumber(),employees[j].getPayRate(),employees[j].getworkedhour(),employees[j].getGrossPay());
+                     
+         }        
+        
+       input.close();
+        
+        
+    }
+    
+}
+
+class Payroll {
+    
+    private String name; 
+    private int id; 
+    private double payRate; 
+    private int workedHours; 
+    
+    public Payroll(String n , int i ) {
+        this.name="";
+        this.id= i ; 
+        this.payRate= 0.00; 
+        this.workedHours=0;   
+        
+    }
+    
+    public Payroll( ) {
+        this.name="";
+        this.id= 0 ; 
+        this.payRate= 0.00; 
+        this.workedHours=0;   
+        
+    }
+    
+    public double getGrossPay() {
+        return this.workedHours * this.payRate;
+    }
+    
+    public void setempname( String Ename) {
+        
+        this.name = Ename ;
+    }
+    
+    public void setid(int Idnumber) {
+        
+        this.id = Idnumber;
+        
+    }
+    
+    public void setpayrate( double rate) {
+        
+        this.payRate=rate ;
+    }
+    
+    public void setWorkedHour( int Whour) {
+        
+       this.workedHours = Whour ;
+    }
+    
+    public String getName() {
+        return this.name; 
+    }
+    
+      public int getidumber() {
+        return this.id; 
+    }
+      
+        public int getworkedhour() {
+        return this.workedHours; 
+    }
+        
+      public double getPayRate() {
+          
+        return this.payRate; 
+    }
+}
