@@ -1,0 +1,138 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab11;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author csolanki7
+ */
+abstract class Geometricobject{
+    private String color;
+    
+    public Geometricobject(String c){
+        this.color = c;
+    }
+    public String getColor(){
+        return this.color;
+    }
+    public void setcolor(String c){
+        this.color = c;
+    }
+    public abstract double getArea();
+    
+    public abstract double getPerimeter();
+}
+
+class Recatangle extends Geometricobject{
+    private double width; 
+    private double height; 
+    
+    public Recatangle (String c, double w,double h){
+        super(c);
+        this.width = w;
+        this.height = h;
+        
+    }
+    
+    public double getwidth(){
+        return this.width;
+    }
+    
+    public void setwidth(double w){
+        this.width = w; 
+    }
+    
+    public double getheight(){
+        return this.height;
+    }
+    
+    public void setheight(double h){
+        this.height = h; 
+    }
+    
+    public double getArea(){
+        return this.height * this.width;
+    }
+    
+    public double getPerimeter(){
+        
+        return (this.width + this.height ) * 2;
+    }
+
+    
+    
+}
+class Circle extends Geometricobject{
+    private double radius; 
+    
+    public Circle (String c, double r){
+        super(c);
+        this.radius = r;
+        
+    }
+    
+    public double getradius(){
+        return this.radius;
+    }
+    
+    public void setwidth(double r){
+        this.radius = r; 
+    }
+    
+    public double getArea(){
+        return this.radius * this.radius * Math.PI;
+    }
+    
+    public double getPerameter(){
+       return 2 * this.radius * Math.PI;    
+    }
+
+    
+}
+    
+public class Lab11 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Enter R for the rectangle or c for the circle :");
+        String selection =kb.nextLine(); 
+        
+        if (selection.equals("R") || selection.equals("r")){
+            System.out.print("Enter the color of your rectangle:");
+            String color = kb.nextLine();
+            
+            System.out.print("Enter the width of yout recatngle:");
+            String w = kb.nextLine();
+            double width = Double.parseDouble(w);
+            
+            
+            System.out.print("Enter the height of yout recatngle:");
+            String h= kb.nextLine();
+            double height = Double.parseDouble(h);
+            
+            Recatangle rec = new Recatangle(color,width,height);
+            
+            System.out.println("This " + rec.getColor() + " recatngle " + " has the area of " + rec.getArea() + " and the perimeter " +rec.getPerimeter() + ".");
+            
+            
+        }
+        else if (selection.equals("c")|| selection.equals("c")) {
+            
+        }
+        else {
+            System.out.println("yqou entered the invalid slection");
+        }
+        kb.close();
+    }
+    
+}
