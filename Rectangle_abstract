@@ -127,6 +127,19 @@ public class Lab11 {
             
         }
         else if (selection.equals("c")|| selection.equals("c")) {
+          
+            System.out.print("Enter the color of your circle:");
+            String color = kb.nextLine();
+            
+            System.out.print("Enter the radius of yout cirlce:");
+            String w = kb.nextLine();
+            double radius = Double.parseDouble(w);
+            
+            
+            Circle cir = new Circle(color,radius);
+            
+            System.out.println("This " + cir.getColor() + " circle " + " has the area of " + cir.getArea() + " and the perimeter " +cir.getPerimeter() + ".");
+            
             
         }
         else {
